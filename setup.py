@@ -13,7 +13,7 @@ setup(
     dependency_links = [
     ],
     install_requires = [
-        'Django>=1.3',        
+        'django'
     ],
     include_package_data=True,
     tests_require=[

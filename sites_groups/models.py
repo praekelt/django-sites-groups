@@ -12,6 +12,7 @@ class SitesGroup(models.Model):
     )
 
     class Meta:
+        app_label = 'sites'
         ordering = ('title',)
 
     def __unicode__(self):
