@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class SiteGroup(models.Model):
+class SitesGroup(models.Model):
     title = models.CharField(
         max_length=256,
         help_text='A short descriptive title.',
