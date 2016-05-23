@@ -1,5 +1,4 @@
 from django.forms.widgets import SelectMultiple
-from django.template.loader import get_template_from_string
 from django.template import Context
 from django.utils.translation import ugettext as _
 
@@ -11,7 +10,7 @@ TEMPLATE = '''
 {% load i18n %}
 <script type="text/javascript">
 function on{{ name }}SitesGroupClick(sender){
-    var select = document.getElementById('id_{{ name }}');    
+    var select = document.getElementById('id_{{ name }}');
     var ids = sender.getAttribute('site_ids').split(',');
     for (var i=0; i < select.options.length; i++)
     {
@@ -38,8 +37,16 @@ function on{{ name }}SitesGroupClick(sender){
 
 class SitesGroupsWidget(SelectMultiple):
 
-    def render(self, name, value, attrs=None, choices=()):                
-        template = get_template_from_string(TEMPLATE)
+    def render(self, name, value, attrs=None, choices=()):
+        # get_template_from_string was deprecated in Django 1.8 and replaced
+        # with Engine.
+        try:
+            from django.template import Engine
+        except ImportError:
+            from django.template.loader import get_template_from_string as func
+        else:
+            func = Engine().from_string
+        template = func(TEMPLATE)
         di = dict(name=name, groups=SitesGroup.objects.all())
         html = template.render(Context(di))
         select = super(SitesGroupsWidget, self).render(name, value, attrs=attrs, choices=choices)
