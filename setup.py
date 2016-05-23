@@ -5,7 +5,7 @@ setup(
     version='0.1.2',
     description='Organize sites from the Django sites framework into groups.',
     long_description = open('README.rst', 'r').read() + open('AUTHORS.rst', 'r').read() + open('CHANGELOG.rst', 'r').read(),
-    author='Praekelt Foundation',
+    author='Praekelt Consulting',
     author_email='dev@praekelt.com',
     license='BSD',
     url='http://github.com/praekelt/django-sites-groups',

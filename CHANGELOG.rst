@@ -1,6 +1,10 @@
 Changelog
 =========
 
+next
+----
+#. Django 1.9 compatibility.
+
 0.1.2
 -----
 #. Correctly include MANIFEST.in
