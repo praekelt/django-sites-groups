@@ -1,8 +1,8 @@
 Changelog
 =========
 
-next
-----
+1.9.0
+-----
 #. Django 1.9 compatibility.
 
 0.1.2
