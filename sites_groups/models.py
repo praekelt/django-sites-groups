@@ -12,12 +12,11 @@ class SitesGroup(models.Model):
     )
 
     class Meta:
-        app_label = 'sites'
         ordering = ('title',)
 
     def __unicode__(self):
         return self.title
 
     @property
-    def site_ids(self):        
+    def site_ids(self):
         return self.sites.all().values_list('id', flat=True)

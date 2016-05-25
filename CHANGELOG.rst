@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.9.1
+-----
+#. Add missing migrations.
+
 1.9.0
 -----
 #. Django 1.9 compatibility.
