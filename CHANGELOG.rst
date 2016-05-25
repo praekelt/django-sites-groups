@@ -1,8 +1,8 @@
 Changelog
 =========
 
-next
-----
+1.9.1
+-----
 #. Add missing migrations.
 
 1.9.0
