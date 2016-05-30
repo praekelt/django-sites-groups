@@ -1,8 +1,8 @@
 Changelog
 =========
 
-next
-----
+1.9.2
+-----
 #. Ensure widget HTML is marked as safe.
 #. Use a rendering engine that has access to standard template tags.
 
