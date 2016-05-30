@@ -1,6 +1,7 @@
 from django.forms.widgets import SelectMultiple
 from django.template import Context
 from django.utils.translation import ugettext as _
+from django.utils.html import mark_safe
 
 from sites_groups.models import SitesGroup
 
@@ -41,13 +42,13 @@ class SitesGroupsWidget(SelectMultiple):
         # get_template_from_string was deprecated in Django 1.8 and replaced
         # with Engine.
         try:
-            from django.template import Engine
+            from django.template import engines
         except ImportError:
             from django.template.loader import get_template_from_string as func
         else:
-            func = Engine().from_string
+            func = engines['django'].from_string
         template = func(TEMPLATE)
         di = dict(name=name, groups=SitesGroup.objects.all())
         html = template.render(Context(di))
         select = super(SitesGroupsWidget, self).render(name, value, attrs=attrs, choices=choices)
-        return '<table style="border: 0;"><tr><td>' + select + '</td><td>' + html + '</td></tr></table>'
+        return mark_safe('<table style="border: 0;"><tr><td>' + select + '</td><td>' + html + '</td></tr></table>')

@@ -1,6 +1,11 @@
 Changelog
 =========
 
+next
+----
+#. Ensure widget HTML is marked as safe.
+#. Use a rendering engine that has access to standard template tags.
+
 1.9.1
 -----
 #. Add missing migrations.
