@@ -49,6 +49,9 @@ class SitesGroupsWidget(SelectMultiple):
             func = engines['django'].from_string
         template = func(TEMPLATE)
         di = dict(name=name, groups=SitesGroup.objects.all())
-        html = template.render(Context(di))
-        select = super(SitesGroupsWidget, self).render(name, value, attrs=attrs, choices=choices)
+        html = template.render(di)
+        try:
+            select = super(SitesGroupsWidget, self).render(name, value, attrs=attrs, choices=choices)
+        except TypeError:
+            select = super(SitesGroupsWidget, self).render(name, value, attrs=attrs)
         return mark_safe('<table style="border: 0;"><tr><td>' + select + '</td><td>' + html + '</td></tr></table>')
