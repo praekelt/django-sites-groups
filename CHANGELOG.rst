@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.11.0
+------
+#. Django 1.11 compatibility.
+
 1.9.2
 -----
 #. Ensure widget HTML is marked as safe.
